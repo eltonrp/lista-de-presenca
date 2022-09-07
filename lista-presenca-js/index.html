@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Presença</title>
+  <style>
+    * {
+      margin: .5rem 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      /* height: 25vh; */
+    }
+    input, button {
+      width: 50%;
+      padding: .5rem;
+    }
+    button {
+      background-color: blue;
+      color: white;
+      font-size: large;
+      cursor: pointer;
+      border-radius: 5px;
+      border: none;
+    }
+    button:hover {
+      background-color: blueviolet;
+    }
+    button:active {
+      transform: scale(.98);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lista de Presença</h1>
+    <div style="display: flex; flex-direction: row;">
+      <p>Nome:&nbsp;</p>
+      <p id="nome"></p>
+    </div>
+    <input type="text" />
+    <button type="button" onclick="takeInput()">Adicionar</button>
+    <div id="card"></div>
+  </div>
+  <script>
+    let input = document.querySelector('input')
+    let nome = document.querySelector('#nome')
+    let card = document.querySelector('#card')
+    input.addEventListener('keyup', e => {
+      nome.innerText = e.currentTarget.value
+    })
+    function takeInput() {
+      if(input.value) {
+        card.innerHTML += `<div style="background-color: blueviolet; color: white; padding: .5rem 1rem; border-radius: 5px;">${nome.innerText}</div>`
+        input.value = ''
+        nome.innerText = ''
+      }
+    }
+  </script>
+</body>
+</html>
