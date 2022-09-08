@@ -36,6 +36,9 @@
     button:active {
       transform: scale(.98);
     }
+    #card {
+      width: 50%;
+    }
 
   </style>
 </head>
@@ -59,7 +62,7 @@
     })
     function takeInput() {
       if(input.value) {
-        card.innerHTML += `<div style="background-color: blueviolet; color: white; padding: .5rem 1rem; border-radius: 5px;">${nome.innerText}</div>`
+        card.innerHTML += `<div style="background-color: blueviolet; color: white; padding: .5rem 1rem; border-radius: 5px;">${nome.innerText[0].toUpperCase() + nome.innerText.substring(1).toLowerCase()}</div>`
         input.value = ''
         nome.innerText = ''
       }
