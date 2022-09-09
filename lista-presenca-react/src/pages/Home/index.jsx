@@ -49,7 +49,7 @@ export function Home() {
           </div>
         </div>
       </header>
-      <input type="text" placeholder='Digite um texto...' onChange={e => setStudentName(e.target.value[0].toUpperCase() + e.target.value.substring(1).toLowerCase())} />
+      <input type="text" placeholder='Digite um texto...' onChange={e => setStudentName(e.target.value.toLowerCase().split(' ').map(str => str[0].toUpperCase() + str.substring(1)).join(' '))} />
       <button type='button' onClick={handleAddStudent}>Adicionar</button>
 
       {
